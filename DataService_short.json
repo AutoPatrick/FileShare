@@ -1,0 +1,4351 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Entity Store orchestrator",
+    "description": "OpenAPI Specification for orchestrator entity store."
+  },
+  "paths": {
+    "/EntityService/ExpenseCommunications/read": {
+      "get": {
+        "tags": [
+          "ExpenseCommunications"
+        ],
+        "description": "Reads all ExpenseCommunications records.",
+        "operationId": "Get ExpenseCommunications records",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "start",
+            "description": "(Optional) Specifies the number of records to skip before starting to return records from the query. Can be used along with limit property to implement pagination. Default value is 0 if not specified. The sort order is based on Id field.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "0"
+            },
+            "required": false
+          },
+          {
+            "name": "limit",
+            "description": "(Optional) Specifies the maximum number of records to read from service. Can be used along with start property to implement pagination. Default value is 100 if not specified. The maximum value can be 1000.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "20"
+            },
+            "required": false
+          },
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseCommunicationsQueryResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseCommunications/read/{id}": {
+      "get": {
+        "tags": [
+          "ExpenseCommunications"
+        ],
+        "description": "Retrieves a single ExpenseCommunications record by Id.",
+        "operationId": "Get ExpenseCommunications",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseCommunications"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseCommunications/query": {
+      "post": {
+        "tags": [
+          "ExpenseCommunications"
+        ],
+        "description": "Query ExpenseCommunications records.",
+        "operationId": "Query ExpenseCommunications",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseCommunicationsQueryResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseCommunications/delete/{id}": {
+      "delete": {
+        "tags": [
+          "ExpenseCommunications"
+        ],
+        "description": "Deletes an existing ExpenseCommunications record.",
+        "operationId": "Delete ExpenseCommunications",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "default": null
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseCommunications/update/{id}": {
+      "post": {
+        "tags": [
+          "ExpenseCommunications"
+        ],
+        "description": "Updates an existing ExpenseCommunications record.",
+        "operationId": "Update ExpenseCommunications",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExpenseCommunications"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseCommunications"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseCommunications/insert": {
+      "post": {
+        "tags": [
+          "ExpenseCommunications"
+        ],
+        "description": "Creates a new ExpenseCommunications record.",
+        "operationId": "Add ExpenseCommunications",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExpenseCommunications"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseCommunications"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseCommunications/insert-batch": {
+      "post": {
+        "tags": [
+          "ExpenseCommunications"
+        ],
+        "description": "Creates multiple new ExpenseCommunications records in a batch.",
+        "operationId": "Batch Add ExpenseCommunications",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          },
+          {
+            "name": "failOnFirst",
+            "description": "(Optional) Specifies if Data Service should stop processing the remaining records when a record fails to process. If set to true, Data Service will stop processing records on the first failure. This property only supports Boolean values (true, false).",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "format": "string",
+              "default": "false"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ExpenseCommunications"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseCommunicationsBatchResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseCommunications/update-batch": {
+      "post": {
+        "tags": [
+          "ExpenseCommunications"
+        ],
+        "description": "Updates multiple existing ExpenseCommunications records in a batch.",
+        "operationId": "Batch Update ExpenseCommunications",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          },
+          {
+            "name": "failOnFirst",
+            "description": "(Optional) Specifies if Data Service should stop processing the remaining records when a record fails to process. If set to true, Data Service will stop processing records on the first failure. This property only supports Boolean values (true, false).",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "format": "string",
+              "default": "false"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ExpenseCommunications"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseCommunicationsBatchResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseCommunications/delete-batch": {
+      "post": {
+        "tags": [
+          "ExpenseCommunications"
+        ],
+        "description": "Deletes multiple existing ExpenseCommunications records in a batch.",
+        "operationId": "Batch Delete ExpenseCommunications",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "failOnFirst",
+            "description": "(Optional) Specifies if Data Service should stop processing the remaining records when a record fails to process. If set to true, Data Service will stop processing records on the first failure. This property only supports Boolean values (true, false).",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "format": "string",
+              "default": "false"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Id"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseCommunicationsBatchResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseCommunications/bulk-upload": {
+      "post": {
+        "tags": [
+          "ExpenseCommunications"
+        ],
+        "description": "Import data for an existing entity ExpenseCommunications.",
+        "operationId": "Import data to ExpenseCommunications",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BulkUploadResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/Attachment/ExpenseCommunications/{recordId}/{fieldName}": {
+      "get": {
+        "tags": [
+          "ExpenseCommunications"
+        ],
+        "description": "Downloads file from the specified field of an existing ExpenseCommunications record.",
+        "operationId": "Download file from ExpenseCommunications",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "recordId",
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "fieldName",
+            "description": "The name of the File field to modify for the specified record in entity $ExpenseCommunications. The name has to be a valid field and is case-sensitive.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "string",
+              "default": null
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ExpenseCommunications"
+        ],
+        "description": "Uploads file to the specified field of an existing ExpenseCommunications record.",
+        "operationId": "Upload file to ExpenseCommunications",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "recordId",
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "fieldName",
+            "description": "The name of the File field to modify for the specified record in entity $ExpenseCommunications. The name has to be a valid field and is case-sensitive.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "string",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ExpenseCommunications"
+        ],
+        "description": "Deletes file from the specified field of an existing ExpenseCommunications record.",
+        "operationId": "Delete file from ExpenseCommunications",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "recordId",
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "fieldName",
+            "description": "The name of the File field to modify for the specified record in entity $ExpenseCommunications. The name has to be a valid field and is case-sensitive.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "string",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseDocuments/read": {
+      "get": {
+        "tags": [
+          "ExpenseDocuments"
+        ],
+        "description": "Reads all ExpenseDocuments records.",
+        "operationId": "Get ExpenseDocuments records",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "start",
+            "description": "(Optional) Specifies the number of records to skip before starting to return records from the query. Can be used along with limit property to implement pagination. Default value is 0 if not specified. The sort order is based on Id field.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "0"
+            },
+            "required": false
+          },
+          {
+            "name": "limit",
+            "description": "(Optional) Specifies the maximum number of records to read from service. Can be used along with start property to implement pagination. Default value is 100 if not specified. The maximum value can be 1000.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "20"
+            },
+            "required": false
+          },
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseDocumentsQueryResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseDocuments/read/{id}": {
+      "get": {
+        "tags": [
+          "ExpenseDocuments"
+        ],
+        "description": "Retrieves a single ExpenseDocuments record by Id.",
+        "operationId": "Get ExpenseDocuments",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseDocuments"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseDocuments/query": {
+      "post": {
+        "tags": [
+          "ExpenseDocuments"
+        ],
+        "description": "Query ExpenseDocuments records.",
+        "operationId": "Query ExpenseDocuments",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseDocumentsQueryResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseDocuments/delete/{id}": {
+      "delete": {
+        "tags": [
+          "ExpenseDocuments"
+        ],
+        "description": "Deletes an existing ExpenseDocuments record.",
+        "operationId": "Delete ExpenseDocuments",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "default": null
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseDocuments/update/{id}": {
+      "post": {
+        "tags": [
+          "ExpenseDocuments"
+        ],
+        "description": "Updates an existing ExpenseDocuments record.",
+        "operationId": "Update ExpenseDocuments",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExpenseDocuments"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseDocuments"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseDocuments/insert": {
+      "post": {
+        "tags": [
+          "ExpenseDocuments"
+        ],
+        "description": "Creates a new ExpenseDocuments record.",
+        "operationId": "Add ExpenseDocuments",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExpenseDocuments"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseDocuments"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseDocuments/insert-batch": {
+      "post": {
+        "tags": [
+          "ExpenseDocuments"
+        ],
+        "description": "Creates multiple new ExpenseDocuments records in a batch.",
+        "operationId": "Batch Add ExpenseDocuments",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          },
+          {
+            "name": "failOnFirst",
+            "description": "(Optional) Specifies if Data Service should stop processing the remaining records when a record fails to process. If set to true, Data Service will stop processing records on the first failure. This property only supports Boolean values (true, false).",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "format": "string",
+              "default": "false"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ExpenseDocuments"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseDocumentsBatchResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseDocuments/update-batch": {
+      "post": {
+        "tags": [
+          "ExpenseDocuments"
+        ],
+        "description": "Updates multiple existing ExpenseDocuments records in a batch.",
+        "operationId": "Batch Update ExpenseDocuments",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          },
+          {
+            "name": "failOnFirst",
+            "description": "(Optional) Specifies if Data Service should stop processing the remaining records when a record fails to process. If set to true, Data Service will stop processing records on the first failure. This property only supports Boolean values (true, false).",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "format": "string",
+              "default": "false"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ExpenseDocuments"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseDocumentsBatchResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseDocuments/delete-batch": {
+      "post": {
+        "tags": [
+          "ExpenseDocuments"
+        ],
+        "description": "Deletes multiple existing ExpenseDocuments records in a batch.",
+        "operationId": "Batch Delete ExpenseDocuments",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "failOnFirst",
+            "description": "(Optional) Specifies if Data Service should stop processing the remaining records when a record fails to process. If set to true, Data Service will stop processing records on the first failure. This property only supports Boolean values (true, false).",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "format": "string",
+              "default": "false"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Id"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseDocumentsBatchResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseDocuments/bulk-upload": {
+      "post": {
+        "tags": [
+          "ExpenseDocuments"
+        ],
+        "description": "Import data for an existing entity ExpenseDocuments.",
+        "operationId": "Import data to ExpenseDocuments",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BulkUploadResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/Attachment/ExpenseDocuments/{recordId}/{fieldName}": {
+      "get": {
+        "tags": [
+          "ExpenseDocuments"
+        ],
+        "description": "Downloads file from the specified field of an existing ExpenseDocuments record.",
+        "operationId": "Download file from ExpenseDocuments",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "recordId",
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "fieldName",
+            "description": "The name of the File field to modify for the specified record in entity $ExpenseDocuments. The name has to be a valid field and is case-sensitive.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "string",
+              "default": null
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ExpenseDocuments"
+        ],
+        "description": "Uploads file to the specified field of an existing ExpenseDocuments record.",
+        "operationId": "Upload file to ExpenseDocuments",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "recordId",
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "fieldName",
+            "description": "The name of the File field to modify for the specified record in entity $ExpenseDocuments. The name has to be a valid field and is case-sensitive.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "string",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ExpenseDocuments"
+        ],
+        "description": "Deletes file from the specified field of an existing ExpenseDocuments record.",
+        "operationId": "Delete file from ExpenseDocuments",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "recordId",
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "fieldName",
+            "description": "The name of the File field to modify for the specified record in entity $ExpenseDocuments. The name has to be a valid field and is case-sensitive.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "string",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpensesA/read": {
+      "get": {
+        "tags": [
+          "ExpensesA"
+        ],
+        "description": "Reads all ExpensesA records.",
+        "operationId": "Get ExpensesA records",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "start",
+            "description": "(Optional) Specifies the number of records to skip before starting to return records from the query. Can be used along with limit property to implement pagination. Default value is 0 if not specified. The sort order is based on Id field.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "0"
+            },
+            "required": false
+          },
+          {
+            "name": "limit",
+            "description": "(Optional) Specifies the maximum number of records to read from service. Can be used along with start property to implement pagination. Default value is 100 if not specified. The maximum value can be 1000.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "20"
+            },
+            "required": false
+          },
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpensesAQueryResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpensesA/read/{id}": {
+      "get": {
+        "tags": [
+          "ExpensesA"
+        ],
+        "description": "Retrieves a single ExpensesA record by Id.",
+        "operationId": "Get ExpensesA",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpensesA"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpensesA/query": {
+      "post": {
+        "tags": [
+          "ExpensesA"
+        ],
+        "description": "Query ExpensesA records.",
+        "operationId": "Query ExpensesA",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpensesAQueryResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpensesA/delete/{id}": {
+      "delete": {
+        "tags": [
+          "ExpensesA"
+        ],
+        "description": "Deletes an existing ExpensesA record.",
+        "operationId": "Delete ExpensesA",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "default": null
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpensesA/update/{id}": {
+      "post": {
+        "tags": [
+          "ExpensesA"
+        ],
+        "description": "Updates an existing ExpensesA record.",
+        "operationId": "Update ExpensesA",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExpensesA"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpensesA"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpensesA/insert": {
+      "post": {
+        "tags": [
+          "ExpensesA"
+        ],
+        "description": "Creates a new ExpensesA record.",
+        "operationId": "Add ExpensesA",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExpensesA"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpensesA"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpensesA/insert-batch": {
+      "post": {
+        "tags": [
+          "ExpensesA"
+        ],
+        "description": "Creates multiple new ExpensesA records in a batch.",
+        "operationId": "Batch Add ExpensesA",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          },
+          {
+            "name": "failOnFirst",
+            "description": "(Optional) Specifies if Data Service should stop processing the remaining records when a record fails to process. If set to true, Data Service will stop processing records on the first failure. This property only supports Boolean values (true, false).",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "format": "string",
+              "default": "false"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ExpensesA"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpensesABatchResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpensesA/update-batch": {
+      "post": {
+        "tags": [
+          "ExpensesA"
+        ],
+        "description": "Updates multiple existing ExpensesA records in a batch.",
+        "operationId": "Batch Update ExpensesA",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          },
+          {
+            "name": "failOnFirst",
+            "description": "(Optional) Specifies if Data Service should stop processing the remaining records when a record fails to process. If set to true, Data Service will stop processing records on the first failure. This property only supports Boolean values (true, false).",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "format": "string",
+              "default": "false"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ExpensesA"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpensesABatchResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpensesA/delete-batch": {
+      "post": {
+        "tags": [
+          "ExpensesA"
+        ],
+        "description": "Deletes multiple existing ExpensesA records in a batch.",
+        "operationId": "Batch Delete ExpensesA",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "failOnFirst",
+            "description": "(Optional) Specifies if Data Service should stop processing the remaining records when a record fails to process. If set to true, Data Service will stop processing records on the first failure. This property only supports Boolean values (true, false).",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "format": "string",
+              "default": "false"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Id"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpensesABatchResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpensesA/bulk-upload": {
+      "post": {
+        "tags": [
+          "ExpensesA"
+        ],
+        "description": "Import data for an existing entity ExpensesA.",
+        "operationId": "Import data to ExpensesA",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BulkUploadResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/Attachment/ExpensesA/{recordId}/{fieldName}": {
+      "get": {
+        "tags": [
+          "ExpensesA"
+        ],
+        "description": "Downloads file from the specified field of an existing ExpensesA record.",
+        "operationId": "Download file from ExpensesA",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "recordId",
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "fieldName",
+            "description": "The name of the File field to modify for the specified record in entity $ExpensesA. The name has to be a valid field and is case-sensitive.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "string",
+              "default": null
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ExpensesA"
+        ],
+        "description": "Uploads file to the specified field of an existing ExpensesA record.",
+        "operationId": "Upload file to ExpensesA",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "recordId",
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "fieldName",
+            "description": "The name of the File field to modify for the specified record in entity $ExpensesA. The name has to be a valid field and is case-sensitive.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "string",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ExpensesA"
+        ],
+        "description": "Deletes file from the specified field of an existing ExpensesA record.",
+        "operationId": "Delete file from ExpensesA",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "recordId",
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "fieldName",
+            "description": "The name of the File field to modify for the specified record in entity $ExpensesA. The name has to be a valid field and is case-sensitive.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "string",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseTaxes/read": {
+      "get": {
+        "tags": [
+          "ExpenseTaxes"
+        ],
+        "description": "Reads all ExpenseTaxes records.",
+        "operationId": "Get ExpenseTaxes records",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "start",
+            "description": "(Optional) Specifies the number of records to skip before starting to return records from the query. Can be used along with limit property to implement pagination. Default value is 0 if not specified. The sort order is based on Id field.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "0"
+            },
+            "required": false
+          },
+          {
+            "name": "limit",
+            "description": "(Optional) Specifies the maximum number of records to read from service. Can be used along with start property to implement pagination. Default value is 100 if not specified. The maximum value can be 1000.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "20"
+            },
+            "required": false
+          },
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseTaxesQueryResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseTaxes/read/{id}": {
+      "get": {
+        "tags": [
+          "ExpenseTaxes"
+        ],
+        "description": "Retrieves a single ExpenseTaxes record by Id.",
+        "operationId": "Get ExpenseTaxes",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseTaxes"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseTaxes/query": {
+      "post": {
+        "tags": [
+          "ExpenseTaxes"
+        ],
+        "description": "Query ExpenseTaxes records.",
+        "operationId": "Query ExpenseTaxes",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseTaxesQueryResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseTaxes/delete/{id}": {
+      "delete": {
+        "tags": [
+          "ExpenseTaxes"
+        ],
+        "description": "Deletes an existing ExpenseTaxes record.",
+        "operationId": "Delete ExpenseTaxes",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "default": null
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseTaxes/update/{id}": {
+      "post": {
+        "tags": [
+          "ExpenseTaxes"
+        ],
+        "description": "Updates an existing ExpenseTaxes record.",
+        "operationId": "Update ExpenseTaxes",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExpenseTaxes"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseTaxes"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseTaxes/insert": {
+      "post": {
+        "tags": [
+          "ExpenseTaxes"
+        ],
+        "description": "Creates a new ExpenseTaxes record.",
+        "operationId": "Add ExpenseTaxes",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExpenseTaxes"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseTaxes"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseTaxes/insert-batch": {
+      "post": {
+        "tags": [
+          "ExpenseTaxes"
+        ],
+        "description": "Creates multiple new ExpenseTaxes records in a batch.",
+        "operationId": "Batch Add ExpenseTaxes",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          },
+          {
+            "name": "failOnFirst",
+            "description": "(Optional) Specifies if Data Service should stop processing the remaining records when a record fails to process. If set to true, Data Service will stop processing records on the first failure. This property only supports Boolean values (true, false).",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "format": "string",
+              "default": "false"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ExpenseTaxes"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseTaxesBatchResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseTaxes/update-batch": {
+      "post": {
+        "tags": [
+          "ExpenseTaxes"
+        ],
+        "description": "Updates multiple existing ExpenseTaxes records in a batch.",
+        "operationId": "Batch Update ExpenseTaxes",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          },
+          {
+            "name": "failOnFirst",
+            "description": "(Optional) Specifies if Data Service should stop processing the remaining records when a record fails to process. If set to true, Data Service will stop processing records on the first failure. This property only supports Boolean values (true, false).",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "format": "string",
+              "default": "false"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ExpenseTaxes"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseTaxesBatchResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseTaxes/delete-batch": {
+      "post": {
+        "tags": [
+          "ExpenseTaxes"
+        ],
+        "description": "Deletes multiple existing ExpenseTaxes records in a batch.",
+        "operationId": "Batch Delete ExpenseTaxes",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "failOnFirst",
+            "description": "(Optional) Specifies if Data Service should stop processing the remaining records when a record fails to process. If set to true, Data Service will stop processing records on the first failure. This property only supports Boolean values (true, false).",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "format": "string",
+              "default": "false"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Id"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseTaxesBatchResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/ExpenseTaxes/bulk-upload": {
+      "post": {
+        "tags": [
+          "ExpenseTaxes"
+        ],
+        "description": "Import data for an existing entity ExpenseTaxes.",
+        "operationId": "Import data to ExpenseTaxes",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BulkUploadResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/Attachment/ExpenseTaxes/{recordId}/{fieldName}": {
+      "get": {
+        "tags": [
+          "ExpenseTaxes"
+        ],
+        "description": "Downloads file from the specified field of an existing ExpenseTaxes record.",
+        "operationId": "Download file from ExpenseTaxes",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "recordId",
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "fieldName",
+            "description": "The name of the File field to modify for the specified record in entity $ExpenseTaxes. The name has to be a valid field and is case-sensitive.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "string",
+              "default": null
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ExpenseTaxes"
+        ],
+        "description": "Uploads file to the specified field of an existing ExpenseTaxes record.",
+        "operationId": "Upload file to ExpenseTaxes",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "recordId",
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "fieldName",
+            "description": "The name of the File field to modify for the specified record in entity $ExpenseTaxes. The name has to be a valid field and is case-sensitive.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "string",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ExpenseTaxes"
+        ],
+        "description": "Deletes file from the specified field of an existing ExpenseTaxes record.",
+        "operationId": "Delete file from ExpenseTaxes",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "recordId",
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "fieldName",
+            "description": "The name of the File field to modify for the specified record in entity $ExpenseTaxes. The name has to be a valid field and is case-sensitive.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "string",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/SystemUser/read": {
+      "get": {
+        "tags": [
+          "SystemUser"
+        ],
+        "description": "Reads all SystemUser records.",
+        "operationId": "Get SystemUser records",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "start",
+            "description": "(Optional) Specifies the number of records to skip before starting to return records from the query. Can be used along with limit property to implement pagination. Default value is 0 if not specified. The sort order is based on Id field.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "0"
+            },
+            "required": false
+          },
+          {
+            "name": "limit",
+            "description": "(Optional) Specifies the maximum number of records to read from service. Can be used along with start property to implement pagination. Default value is 100 if not specified. The maximum value can be 1000.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "20"
+            },
+            "required": false
+          },
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemUserQueryResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/SystemUser/read/{id}": {
+      "get": {
+        "tags": [
+          "SystemUser"
+        ],
+        "description": "Retrieves a single SystemUser record by Id.",
+        "operationId": "Get SystemUser",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "default": null
+            },
+            "required": true
+          },
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemUser"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    },
+    "/EntityService/SystemUser/query": {
+      "post": {
+        "tags": [
+          "SystemUser"
+        ],
+        "description": "Query SystemUser records.",
+        "operationId": "Query SystemUser",
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "expansionLevel",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": "2"
+            },
+            "required": false
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemUserQueryResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "$ref": "#/components/responses/ForbiddenError"
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://cloud.uipath.com/beternaautomation/orchestrator/dataservice_/api"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "CommDirection": {
+        "type": "integer",
+        "x-uipath-dataservice-type": "choiceset",
+        "enum": [
+          1,
+          0
+        ],
+        "x-enum-varnames": [
+          "Inbound",
+          "Outbound"
+        ]
+      },
+      "UserType": {
+        "type": "integer",
+        "x-uipath-dataservice-type": "choiceset",
+        "enum": [
+          3,
+          1,
+          2,
+          0
+        ],
+        "x-enum-varnames": [
+          "Application",
+          "Group",
+          "Robot",
+          "User"
+        ]
+      },
+      "ExpenseCommunications": {
+        "type": "object",
+        "x-uipath-dataservice-type": "entity",
+        "properties": {
+          "Body": {
+            "type": "string",
+            "format": "",
+            "nullable": true
+          },
+          "Channel": {
+            "type": "string",
+            "format": "",
+            "nullable": true
+          },
+          "CreatedBy": {
+            "$ref": "#/components/schemas/SystemUser"
+          },
+          "CreateTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": false
+          },
+          "Direction": {
+            "$ref": "#/components/schemas/CommDirection"
+          },
+          "Expense": {
+            "$ref": "#/components/schemas/ExpensesA"
+          },
+          "Id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": false
+          },
+          "InReplyToID": {
+            "type": "string",
+            "format": "",
+            "nullable": true
+          },
+          "MessageID": {
+            "type": "string",
+            "format": "",
+            "nullable": true
+          },
+          "RecipientAddress": {
+            "type": "string",
+            "format": "",
+            "nullable": true
+          },
+          "SenderAddress": {
+            "type": "string",
+            "format": "",
+            "nullable": true
+          },
+          "Subject": {
+            "type": "string",
+            "format": "",
+            "nullable": true
+          },
+          "Timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "Type": {
+            "type": "string",
+            "format": "",
+            "nullable": true
+          },
+          "UpdatedBy": {
+            "$ref": "#/components/schemas/SystemUser"
+          },
+          "UpdateTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "ExpenseCommunicationsQueryResponse": {
+        "type": "object",
+        "properties": {
+          "totalRecordCount": {
+            "description": "The total number of records matching the specified query filters in the service. Can be used with start and limit properties of QueryRequest to implement pagination.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExpenseCommunications"
+            }
+          }
+        }
+      },
+      "ExpenseCommunicationsBatchResponse": {
+        "type": "object",
+        "properties": {
+          "successRecords": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExpenseCommunications"
+            }
+          },
+          "failureRecords": {
+            "type": "array",
+            "properties": {
+              "error": {
+                "type": "string"
+              },
+              "record": {
+                "$ref": "#/components/schemas/ExpenseCommunications"
+              }
+            }
+          }
+        }
+      },
+      "ExpenseDocuments": {
+        "type": "object",
+        "x-uipath-dataservice-type": "entity",
+        "properties": {
+          "Communication": {
+            "$ref": "#/components/schemas/ExpenseCommunications"
+          },
+          "CreatedBy": {
+            "$ref": "#/components/schemas/SystemUser"
+          },
+          "CreateTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": false
+          },
+          "Data": {
+            "$ref": "#/components/schemas/EntityAttachment"
+          },
+          "DocumentURL": {
+            "type": "string",
+            "format": "",
+            "nullable": true
+          },
+          "Expense": {
+            "$ref": "#/components/schemas/ExpensesA"
+          },
+          "File": {
+            "$ref": "#/components/schemas/EntityAttachment"
+          },
+          "Id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": false
+          },
+          "Name": {
+            "type": "string",
+            "format": "",
+            "nullable": true
+          },
+          "RawText": {
+            "$ref": "#/components/schemas/EntityAttachment"
+          },
+          "ThumbnailURL": {
+            "type": "string",
+            "format": "",
+            "nullable": true
+          },
+          "UpdatedBy": {
+            "$ref": "#/components/schemas/SystemUser"
+          },
+          "UpdateTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "ExpenseDocumentsQueryResponse": {
+        "type": "object",
+        "properties": {
+          "totalRecordCount": {
+            "description": "The total number of records matching the specified query filters in the service. Can be used with start and limit properties of QueryRequest to implement pagination.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExpenseDocuments"
+            }
+          }
+        }
+      },
+      "ExpenseDocumentsBatchResponse": {
+        "type": "object",
+        "properties": {
+          "successRecords": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExpenseDocuments"
+            }
+          },
+          "failureRecords": {
+            "type": "array",
+            "properties": {
+              "error": {
+                "type": "string"
+              },
+              "record": {
+                "$ref": "#/components/schemas/ExpenseDocuments"
+              }
+            }
+          }
+        }
+      },
+      "ExpensesA": {
+        "type": "object",
+        "x-uipath-dataservice-type": "entity",
+        "properties": {
+          "BookingText": {
+            "type": "string",
+            "format": "",
+            "nullable": true
+          },
+          "Country": {
+            "type": "string",
+            "format": "",
+            "nullable": true
+          },
+          "CreatedBy": {
+            "$ref": "#/components/schemas/SystemUser"
+          },
+          "CreateTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": false
+          },
+          "Currency": {
+            "type": "string",
+            "format": "",
+            "nullable": true
+          },
+          "ExpenseDate": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "ExternalID": {
+            "type": "string",
+            "format": "",
+            "nullable": false
+          },
+          "Id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": false
+          },
+          "ServiceCode": {
+            "type": "string",
+            "format": "",
+            "nullable": true
+          },
+          "ServiceDescription": {
+            "type": "string",
+            "format": "",
+            "nullable": true
+          },
+          "SubmittedBy": {
+            "type": "string",
+            "format": "",
+            "nullable": true
+          },
+          "TotalAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "TotalAmountCHF": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "UpdatedBy": {
+            "$ref": "#/components/schemas/SystemUser"
+          },
+          "UpdateTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "required": [
+          "ExternalID"
+        ]
+      },
+      "ExpensesAQueryResponse": {
+        "type": "object",
+        "properties": {
+          "totalRecordCount": {
+            "description": "The total number of records matching the specified query filters in the service. Can be used with start and limit properties of QueryRequest to implement pagination.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExpensesA"
+            }
+          }
+        }
+      },
+      "ExpensesABatchResponse": {
+        "type": "object",
+        "properties": {
+          "successRecords": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExpensesA"
+            }
+          },
+          "failureRecords": {
+            "type": "array",
+            "properties": {
+              "error": {
+                "type": "string"
+              },
+              "record": {
+                "$ref": "#/components/schemas/ExpensesA"
+              }
+            }
+          }
+        }
+      },
+      "ExpenseTaxes": {
+        "type": "object",
+        "x-uipath-dataservice-type": "entity",
+        "properties": {
+          "Amount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "AmountCHF": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "CreatedBy": {
+            "$ref": "#/components/schemas/SystemUser"
+          },
+          "CreateTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": false
+          },
+          "Description": {
+            "type": "string",
+            "format": "",
+            "nullable": true
+          },
+          "Expense": {
+            "$ref": "#/components/schemas/ExpensesA"
+          },
+          "Id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": false
+          },
+          "TaxRate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "UpdatedBy": {
+            "$ref": "#/components/schemas/SystemUser"
+          },
+          "UpdateTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "ExpenseTaxesQueryResponse": {
+        "type": "object",
+        "properties": {
+          "totalRecordCount": {
+            "description": "The total number of records matching the specified query filters in the service. Can be used with start and limit properties of QueryRequest to implement pagination.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExpenseTaxes"
+            }
+          }
+        }
+      },
+      "ExpenseTaxesBatchResponse": {
+        "type": "object",
+        "properties": {
+          "successRecords": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExpenseTaxes"
+            }
+          },
+          "failureRecords": {
+            "type": "array",
+            "properties": {
+              "error": {
+                "type": "string"
+              },
+              "record": {
+                "$ref": "#/components/schemas/ExpenseTaxes"
+              }
+            }
+          }
+        }
+      },
+      "SystemUser": {
+        "type": "object",
+        "x-uipath-dataservice-type": "entity",
+        "properties": {
+          "CreateTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": false
+          },
+          "Email": {
+            "type": "string",
+            "format": "",
+            "nullable": true
+          },
+          "Id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": false
+          },
+          "IsActive": {
+            "type": "boolean",
+            "format": "",
+            "nullable": false
+          },
+          "Name": {
+            "type": "string",
+            "format": "",
+            "nullable": false
+          },
+          "Type": {
+            "$ref": "#/components/schemas/UserType"
+          },
+          "UpdateTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "SystemUserQueryResponse": {
+        "type": "object",
+        "properties": {
+          "totalRecordCount": {
+            "description": "The total number of records matching the specified query filters in the service. Can be used with start and limit properties of QueryRequest to implement pagination.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SystemUser"
+            }
+          }
+        }
+      },
+      "SystemUserBatchResponse": {
+        "type": "object",
+        "properties": {
+          "successRecords": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SystemUser"
+            }
+          },
+          "failureRecords": {
+            "type": "array",
+            "properties": {
+              "error": {
+                "type": "string"
+              },
+              "record": {
+                "$ref": "#/components/schemas/SystemUser"
+              }
+            }
+          }
+        }
+      },
+      "QueryRequest": {
+        "type": "object",
+        "properties": {
+          "selectedFields": {
+            "description": "(Optional) Specifies the list of fields to be returned for each record from the query. If left as null or the list is empty, all fields for the record will be returned. Default is null.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "filterGroup": {
+            "$ref": "#/components/schemas/QueryFilterGroup"
+          },
+          "start": {
+            "description": "(Optional) Specifies the number of records to skip before starting to return records from the query. Can be used along with limit property to implement pagination. Default value is 0 if not specified. The default sort order is based on Id field, use sortOptions to change the sort order.",
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0
+          },
+          "limit": {
+            "description": "(Optional) Specifies the maximum number of records to read from service. Can be used along with start property to implement pagination. Default value is 100 if not specified. The maximum value can be 1000.",
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0
+          },
+          "sortOptions": {
+            "description": "(Optional) Specifies the list of fields used to sort returned records. The default sort order is based on Id field if sortOptions are not provided.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SortOption"
+            }
+          }
+        }
+      },
+      "SortOption": {
+        "type": "object",
+        "properties": {
+          "fieldName": {
+            "description": "Specifies the name of the field used to sort returned records. The name has to be a valid field and is case-sensitive.",
+            "type": "string",
+            "format": ""
+          },
+          "isDescending": {
+            "type": "boolean",
+            "format": ""
+          }
+        }
+      },
+      "QueryFilterGroup": {
+        "type": "object",
+        "properties": {
+          "logicalOperator": {
+            "description": "Specifies if All (AND) or Any (OR) filters and filter groups should be used to filter records. Use 0 for All (AND) and 1 for Any (OR). Default is 0.",
+            "type": "integer",
+            "format": "int32",
+            "default": 0,
+            "minimum": 0,
+            "maximum": 1
+          },
+          "queryFilters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QueryFilter"
+            }
+          },
+          "filterGroups": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QueryFilterGroup"
+            }
+          }
+        }
+      },
+      "QueryFilter": {
+        "type": "object",
+        "properties": {
+          "fieldName": {
+            "description": "Specifies the name of the field for filter operation.",
+            "type": "string",
+            "format": ""
+          },
+          "operator": {
+            "description": "Specifies the operator used for filter operation. Supported operators include: contains, not contains, startswith, endswith, =, !=, >, <, >=, <=, in, not in. Not all operators are supported for all field types.",
+            "type": "string",
+            "format": ""
+          },
+          "value": {
+            "description": "Specifies the value to use for the filter operation. An empty value with '=' operator does a null check and with '!=' operator does a not null check.",
+            "type": "string",
+            "format": ""
+          }
+        }
+      },
+      "Boolean": {
+        "type": "boolean"
+      },
+      "Id": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "EntityAttachment": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "format": ""
+          },
+          "path": {
+            "type": "string",
+            "format": ""
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0
+          },
+          "type": {
+            "type": "string",
+            "format": ""
+          }
+        }
+      },
+      "BulkUploadResult": {
+        "type": "object",
+        "properties": {
+          "totalRecords": {
+            "description": "The total number of records to be uploaded to Data Service.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "insertedRecords": {
+            "description": "The total number of records uploaded to Data Service.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "errorFileLink": {
+            "description": "The file link for bulk upload error.",
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "oauth2": {
+        "type": "oauth2",
+        "flows": {
+          "authorizationCode": {
+            "tokenUrl": "https://cloud.uipath.com/identity_/connect/token",
+            "authorizationUrl": "https://cloud.uipath.com/identity_/connect/authorize",
+            "scopes": {
+              "DataService.Schema.Read": "Entity Schema Read",
+              "DataService.Data.Read": "Entity Data Read",
+              "DataService.Data.Write": "Entity Data Write"
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "UnauthorizedError": {
+        "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+      },
+      "ForbiddenError": {
+        "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+      }
+    }
+  }
+}
