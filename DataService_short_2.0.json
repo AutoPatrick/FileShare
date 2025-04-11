@@ -1,0 +1,4086 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "OpenAPI Specification for orchestrator entity store.",
+    "title": "Entity Store orchestrator",
+    "version": "1.0.0"
+  },
+  "host": "cloud.uipath.com",
+  "basePath": "/beternaautomation/orchestrator/dataservice_/api",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/Attachment/ExpenseCommunications/{recordId}/{fieldName}": {
+      "delete": {
+        "parameters": [
+          {
+            "default": null,
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "format": "uuid",
+            "in": "path",
+            "name": "recordId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": null,
+            "description": "The name of the File field to modify for the specified record in entity $ExpenseCommunications. The name has to be a valid field and is case-sensitive.",
+            "format": "string",
+            "in": "path",
+            "name": "fieldName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseCommunications"
+        ],
+        "description": "Deletes file from the specified field of an existing ExpenseCommunications record.",
+        "operationId": "Delete file from ExpenseCommunications"
+      },
+      "get": {
+        "parameters": [
+          {
+            "default": null,
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "format": "uuid",
+            "in": "path",
+            "name": "recordId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": null,
+            "description": "The name of the File field to modify for the specified record in entity $ExpenseCommunications. The name has to be a valid field and is case-sensitive.",
+            "format": "string",
+            "in": "path",
+            "name": "fieldName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseCommunications"
+        ],
+        "description": "Downloads file from the specified field of an existing ExpenseCommunications record.",
+        "operationId": "Download file from ExpenseCommunications"
+      },
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "default": null,
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "format": "uuid",
+            "in": "path",
+            "name": "recordId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": null,
+            "description": "The name of the File field to modify for the specified record in entity $ExpenseCommunications. The name has to be a valid field and is case-sensitive.",
+            "format": "string",
+            "in": "path",
+            "name": "fieldName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "format": "binary",
+            "in": "formData",
+            "name": "file",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseCommunications"
+        ],
+        "description": "Uploads file to the specified field of an existing ExpenseCommunications record.",
+        "operationId": "Upload file to ExpenseCommunications"
+      }
+    },
+    "/Attachment/ExpenseDocuments/{recordId}/{fieldName}": {
+      "delete": {
+        "parameters": [
+          {
+            "default": null,
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "format": "uuid",
+            "in": "path",
+            "name": "recordId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": null,
+            "description": "The name of the File field to modify for the specified record in entity $ExpenseDocuments. The name has to be a valid field and is case-sensitive.",
+            "format": "string",
+            "in": "path",
+            "name": "fieldName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseDocuments"
+        ],
+        "description": "Deletes file from the specified field of an existing ExpenseDocuments record.",
+        "operationId": "Delete file from ExpenseDocuments"
+      },
+      "get": {
+        "parameters": [
+          {
+            "default": null,
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "format": "uuid",
+            "in": "path",
+            "name": "recordId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": null,
+            "description": "The name of the File field to modify for the specified record in entity $ExpenseDocuments. The name has to be a valid field and is case-sensitive.",
+            "format": "string",
+            "in": "path",
+            "name": "fieldName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseDocuments"
+        ],
+        "description": "Downloads file from the specified field of an existing ExpenseDocuments record.",
+        "operationId": "Download file from ExpenseDocuments"
+      },
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "default": null,
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "format": "uuid",
+            "in": "path",
+            "name": "recordId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": null,
+            "description": "The name of the File field to modify for the specified record in entity $ExpenseDocuments. The name has to be a valid field and is case-sensitive.",
+            "format": "string",
+            "in": "path",
+            "name": "fieldName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "format": "binary",
+            "in": "formData",
+            "name": "file",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseDocuments"
+        ],
+        "description": "Uploads file to the specified field of an existing ExpenseDocuments record.",
+        "operationId": "Upload file to ExpenseDocuments"
+      }
+    },
+    "/Attachment/ExpenseTaxes/{recordId}/{fieldName}": {
+      "delete": {
+        "parameters": [
+          {
+            "default": null,
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "format": "uuid",
+            "in": "path",
+            "name": "recordId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": null,
+            "description": "The name of the File field to modify for the specified record in entity $ExpenseTaxes. The name has to be a valid field and is case-sensitive.",
+            "format": "string",
+            "in": "path",
+            "name": "fieldName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseTaxes"
+        ],
+        "description": "Deletes file from the specified field of an existing ExpenseTaxes record.",
+        "operationId": "Delete file from ExpenseTaxes"
+      },
+      "get": {
+        "parameters": [
+          {
+            "default": null,
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "format": "uuid",
+            "in": "path",
+            "name": "recordId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": null,
+            "description": "The name of the File field to modify for the specified record in entity $ExpenseTaxes. The name has to be a valid field and is case-sensitive.",
+            "format": "string",
+            "in": "path",
+            "name": "fieldName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseTaxes"
+        ],
+        "description": "Downloads file from the specified field of an existing ExpenseTaxes record.",
+        "operationId": "Download file from ExpenseTaxes"
+      },
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "default": null,
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "format": "uuid",
+            "in": "path",
+            "name": "recordId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": null,
+            "description": "The name of the File field to modify for the specified record in entity $ExpenseTaxes. The name has to be a valid field and is case-sensitive.",
+            "format": "string",
+            "in": "path",
+            "name": "fieldName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "format": "binary",
+            "in": "formData",
+            "name": "file",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseTaxes"
+        ],
+        "description": "Uploads file to the specified field of an existing ExpenseTaxes record.",
+        "operationId": "Upload file to ExpenseTaxes"
+      }
+    },
+    "/Attachment/ExpensesA/{recordId}/{fieldName}": {
+      "delete": {
+        "parameters": [
+          {
+            "default": null,
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "format": "uuid",
+            "in": "path",
+            "name": "recordId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": null,
+            "description": "The name of the File field to modify for the specified record in entity $ExpensesA. The name has to be a valid field and is case-sensitive.",
+            "format": "string",
+            "in": "path",
+            "name": "fieldName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpensesA"
+        ],
+        "description": "Deletes file from the specified field of an existing ExpensesA record.",
+        "operationId": "Delete file from ExpensesA"
+      },
+      "get": {
+        "parameters": [
+          {
+            "default": null,
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "format": "uuid",
+            "in": "path",
+            "name": "recordId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": null,
+            "description": "The name of the File field to modify for the specified record in entity $ExpensesA. The name has to be a valid field and is case-sensitive.",
+            "format": "string",
+            "in": "path",
+            "name": "fieldName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpensesA"
+        ],
+        "description": "Downloads file from the specified field of an existing ExpensesA record.",
+        "operationId": "Download file from ExpensesA"
+      },
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "default": null,
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "format": "uuid",
+            "in": "path",
+            "name": "recordId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": null,
+            "description": "The name of the File field to modify for the specified record in entity $ExpensesA. The name has to be a valid field and is case-sensitive.",
+            "format": "string",
+            "in": "path",
+            "name": "fieldName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "format": "binary",
+            "in": "formData",
+            "name": "file",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpensesA"
+        ],
+        "description": "Uploads file to the specified field of an existing ExpensesA record.",
+        "operationId": "Upload file to ExpensesA"
+      }
+    },
+    "/EntityService/ExpenseCommunications/bulk-upload": {
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "format": "binary",
+            "in": "formData",
+            "name": "file",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BulkUploadResult"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseCommunications"
+        ],
+        "description": "Import data for an existing entity ExpenseCommunications.",
+        "operationId": "Import data to ExpenseCommunications"
+      }
+    },
+    "/EntityService/ExpenseCommunications/delete-batch": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "false",
+            "description": "(Optional) Specifies if Data Service should stop processing the remaining records when a record fails to process. If set to true, Data Service will stop processing records on the first failure. This property only supports Boolean values (true, false).",
+            "format": "string",
+            "in": "query",
+            "name": "failOnFirst",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Id"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpenseCommunicationsBatchResponse"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseCommunications"
+        ],
+        "description": "Deletes multiple existing ExpenseCommunications records in a batch.",
+        "operationId": "Batch Delete ExpenseCommunications"
+      }
+    },
+    "/EntityService/ExpenseCommunications/delete/{id}": {
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": null,
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "format": "uuid",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Boolean"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseCommunications"
+        ],
+        "description": "Deletes an existing ExpenseCommunications record.",
+        "operationId": "Delete ExpenseCommunications"
+      }
+    },
+    "/EntityService/ExpenseCommunications/insert": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExpenseCommunications"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpenseCommunications"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseCommunications"
+        ],
+        "description": "Creates a new ExpenseCommunications record.",
+        "operationId": "Add ExpenseCommunications"
+      }
+    },
+    "/EntityService/ExpenseCommunications/insert-batch": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": "false",
+            "description": "(Optional) Specifies if Data Service should stop processing the remaining records when a record fails to process. If set to true, Data Service will stop processing records on the first failure. This property only supports Boolean values (true, false).",
+            "format": "string",
+            "in": "query",
+            "name": "failOnFirst",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ExpenseCommunications"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpenseCommunicationsBatchResponse"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseCommunications"
+        ],
+        "description": "Creates multiple new ExpenseCommunications records in a batch.",
+        "operationId": "Batch Add ExpenseCommunications"
+      }
+    },
+    "/EntityService/ExpenseCommunications/query": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/QueryRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpenseCommunicationsQueryResponse"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseCommunications"
+        ],
+        "description": "Query ExpenseCommunications records.",
+        "operationId": "Query ExpenseCommunications"
+      }
+    },
+    "/EntityService/ExpenseCommunications/read": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "0",
+            "description": "(Optional) Specifies the number of records to skip before starting to return records from the query. Can be used along with limit property to implement pagination. Default value is 0 if not specified. The sort order is based on Id field.",
+            "format": "int32",
+            "in": "query",
+            "name": "start",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": "20",
+            "description": "(Optional) Specifies the maximum number of records to read from service. Can be used along with start property to implement pagination. Default value is 100 if not specified. The maximum value can be 1000.",
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpenseCommunicationsQueryResponse"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseCommunications"
+        ],
+        "description": "Reads all ExpenseCommunications records.",
+        "operationId": "Get ExpenseCommunications records"
+      }
+    },
+    "/EntityService/ExpenseCommunications/read/{id}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": null,
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "format": "uuid",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpenseCommunications"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseCommunications"
+        ],
+        "description": "Retrieves a single ExpenseCommunications record by Id.",
+        "operationId": "Get ExpenseCommunications"
+      }
+    },
+    "/EntityService/ExpenseCommunications/update-batch": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": "false",
+            "description": "(Optional) Specifies if Data Service should stop processing the remaining records when a record fails to process. If set to true, Data Service will stop processing records on the first failure. This property only supports Boolean values (true, false).",
+            "format": "string",
+            "in": "query",
+            "name": "failOnFirst",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ExpenseCommunications"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpenseCommunicationsBatchResponse"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseCommunications"
+        ],
+        "description": "Updates multiple existing ExpenseCommunications records in a batch.",
+        "operationId": "Batch Update ExpenseCommunications"
+      }
+    },
+    "/EntityService/ExpenseCommunications/update/{id}": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": null,
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "format": "uuid",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExpenseCommunications"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpenseCommunications"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseCommunications"
+        ],
+        "description": "Updates an existing ExpenseCommunications record.",
+        "operationId": "Update ExpenseCommunications"
+      }
+    },
+    "/EntityService/ExpenseDocuments/bulk-upload": {
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "format": "binary",
+            "in": "formData",
+            "name": "file",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BulkUploadResult"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseDocuments"
+        ],
+        "description": "Import data for an existing entity ExpenseDocuments.",
+        "operationId": "Import data to ExpenseDocuments"
+      }
+    },
+    "/EntityService/ExpenseDocuments/delete-batch": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "false",
+            "description": "(Optional) Specifies if Data Service should stop processing the remaining records when a record fails to process. If set to true, Data Service will stop processing records on the first failure. This property only supports Boolean values (true, false).",
+            "format": "string",
+            "in": "query",
+            "name": "failOnFirst",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Id"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpenseDocumentsBatchResponse"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseDocuments"
+        ],
+        "description": "Deletes multiple existing ExpenseDocuments records in a batch.",
+        "operationId": "Batch Delete ExpenseDocuments"
+      }
+    },
+    "/EntityService/ExpenseDocuments/delete/{id}": {
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": null,
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "format": "uuid",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Boolean"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseDocuments"
+        ],
+        "description": "Deletes an existing ExpenseDocuments record.",
+        "operationId": "Delete ExpenseDocuments"
+      }
+    },
+    "/EntityService/ExpenseDocuments/insert": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExpenseDocuments"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpenseDocuments"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseDocuments"
+        ],
+        "description": "Creates a new ExpenseDocuments record.",
+        "operationId": "Add ExpenseDocuments"
+      }
+    },
+    "/EntityService/ExpenseDocuments/insert-batch": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": "false",
+            "description": "(Optional) Specifies if Data Service should stop processing the remaining records when a record fails to process. If set to true, Data Service will stop processing records on the first failure. This property only supports Boolean values (true, false).",
+            "format": "string",
+            "in": "query",
+            "name": "failOnFirst",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ExpenseDocuments"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpenseDocumentsBatchResponse"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseDocuments"
+        ],
+        "description": "Creates multiple new ExpenseDocuments records in a batch.",
+        "operationId": "Batch Add ExpenseDocuments"
+      }
+    },
+    "/EntityService/ExpenseDocuments/query": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/QueryRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpenseDocumentsQueryResponse"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseDocuments"
+        ],
+        "description": "Query ExpenseDocuments records.",
+        "operationId": "Query ExpenseDocuments"
+      }
+    },
+    "/EntityService/ExpenseDocuments/read": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "0",
+            "description": "(Optional) Specifies the number of records to skip before starting to return records from the query. Can be used along with limit property to implement pagination. Default value is 0 if not specified. The sort order is based on Id field.",
+            "format": "int32",
+            "in": "query",
+            "name": "start",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": "20",
+            "description": "(Optional) Specifies the maximum number of records to read from service. Can be used along with start property to implement pagination. Default value is 100 if not specified. The maximum value can be 1000.",
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpenseDocumentsQueryResponse"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseDocuments"
+        ],
+        "description": "Reads all ExpenseDocuments records.",
+        "operationId": "Get ExpenseDocuments records"
+      }
+    },
+    "/EntityService/ExpenseDocuments/read/{id}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": null,
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "format": "uuid",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpenseDocuments"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseDocuments"
+        ],
+        "description": "Retrieves a single ExpenseDocuments record by Id.",
+        "operationId": "Get ExpenseDocuments"
+      }
+    },
+    "/EntityService/ExpenseDocuments/update-batch": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": "false",
+            "description": "(Optional) Specifies if Data Service should stop processing the remaining records when a record fails to process. If set to true, Data Service will stop processing records on the first failure. This property only supports Boolean values (true, false).",
+            "format": "string",
+            "in": "query",
+            "name": "failOnFirst",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ExpenseDocuments"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpenseDocumentsBatchResponse"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseDocuments"
+        ],
+        "description": "Updates multiple existing ExpenseDocuments records in a batch.",
+        "operationId": "Batch Update ExpenseDocuments"
+      }
+    },
+    "/EntityService/ExpenseDocuments/update/{id}": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": null,
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "format": "uuid",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExpenseDocuments"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpenseDocuments"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseDocuments"
+        ],
+        "description": "Updates an existing ExpenseDocuments record.",
+        "operationId": "Update ExpenseDocuments"
+      }
+    },
+    "/EntityService/ExpenseTaxes/bulk-upload": {
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "format": "binary",
+            "in": "formData",
+            "name": "file",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BulkUploadResult"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseTaxes"
+        ],
+        "description": "Import data for an existing entity ExpenseTaxes.",
+        "operationId": "Import data to ExpenseTaxes"
+      }
+    },
+    "/EntityService/ExpenseTaxes/delete-batch": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "false",
+            "description": "(Optional) Specifies if Data Service should stop processing the remaining records when a record fails to process. If set to true, Data Service will stop processing records on the first failure. This property only supports Boolean values (true, false).",
+            "format": "string",
+            "in": "query",
+            "name": "failOnFirst",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Id"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpenseTaxesBatchResponse"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseTaxes"
+        ],
+        "description": "Deletes multiple existing ExpenseTaxes records in a batch.",
+        "operationId": "Batch Delete ExpenseTaxes"
+      }
+    },
+    "/EntityService/ExpenseTaxes/delete/{id}": {
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": null,
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "format": "uuid",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Boolean"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseTaxes"
+        ],
+        "description": "Deletes an existing ExpenseTaxes record.",
+        "operationId": "Delete ExpenseTaxes"
+      }
+    },
+    "/EntityService/ExpenseTaxes/insert": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExpenseTaxes"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpenseTaxes"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseTaxes"
+        ],
+        "description": "Creates a new ExpenseTaxes record.",
+        "operationId": "Add ExpenseTaxes"
+      }
+    },
+    "/EntityService/ExpenseTaxes/insert-batch": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": "false",
+            "description": "(Optional) Specifies if Data Service should stop processing the remaining records when a record fails to process. If set to true, Data Service will stop processing records on the first failure. This property only supports Boolean values (true, false).",
+            "format": "string",
+            "in": "query",
+            "name": "failOnFirst",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ExpenseTaxes"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpenseTaxesBatchResponse"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseTaxes"
+        ],
+        "description": "Creates multiple new ExpenseTaxes records in a batch.",
+        "operationId": "Batch Add ExpenseTaxes"
+      }
+    },
+    "/EntityService/ExpenseTaxes/query": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/QueryRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpenseTaxesQueryResponse"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseTaxes"
+        ],
+        "description": "Query ExpenseTaxes records.",
+        "operationId": "Query ExpenseTaxes"
+      }
+    },
+    "/EntityService/ExpenseTaxes/read": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "0",
+            "description": "(Optional) Specifies the number of records to skip before starting to return records from the query. Can be used along with limit property to implement pagination. Default value is 0 if not specified. The sort order is based on Id field.",
+            "format": "int32",
+            "in": "query",
+            "name": "start",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": "20",
+            "description": "(Optional) Specifies the maximum number of records to read from service. Can be used along with start property to implement pagination. Default value is 100 if not specified. The maximum value can be 1000.",
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpenseTaxesQueryResponse"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseTaxes"
+        ],
+        "description": "Reads all ExpenseTaxes records.",
+        "operationId": "Get ExpenseTaxes records"
+      }
+    },
+    "/EntityService/ExpenseTaxes/read/{id}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": null,
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "format": "uuid",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpenseTaxes"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseTaxes"
+        ],
+        "description": "Retrieves a single ExpenseTaxes record by Id.",
+        "operationId": "Get ExpenseTaxes"
+      }
+    },
+    "/EntityService/ExpenseTaxes/update-batch": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": "false",
+            "description": "(Optional) Specifies if Data Service should stop processing the remaining records when a record fails to process. If set to true, Data Service will stop processing records on the first failure. This property only supports Boolean values (true, false).",
+            "format": "string",
+            "in": "query",
+            "name": "failOnFirst",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ExpenseTaxes"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpenseTaxesBatchResponse"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseTaxes"
+        ],
+        "description": "Updates multiple existing ExpenseTaxes records in a batch.",
+        "operationId": "Batch Update ExpenseTaxes"
+      }
+    },
+    "/EntityService/ExpenseTaxes/update/{id}": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": null,
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "format": "uuid",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExpenseTaxes"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpenseTaxes"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpenseTaxes"
+        ],
+        "description": "Updates an existing ExpenseTaxes record.",
+        "operationId": "Update ExpenseTaxes"
+      }
+    },
+    "/EntityService/ExpensesA/bulk-upload": {
+      "post": {
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "format": "binary",
+            "in": "formData",
+            "name": "file",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BulkUploadResult"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpensesA"
+        ],
+        "description": "Import data for an existing entity ExpensesA.",
+        "operationId": "Import data to ExpensesA"
+      }
+    },
+    "/EntityService/ExpensesA/delete-batch": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "false",
+            "description": "(Optional) Specifies if Data Service should stop processing the remaining records when a record fails to process. If set to true, Data Service will stop processing records on the first failure. This property only supports Boolean values (true, false).",
+            "format": "string",
+            "in": "query",
+            "name": "failOnFirst",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Id"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpensesABatchResponse"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpensesA"
+        ],
+        "description": "Deletes multiple existing ExpensesA records in a batch.",
+        "operationId": "Batch Delete ExpensesA"
+      }
+    },
+    "/EntityService/ExpensesA/delete/{id}": {
+      "delete": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": null,
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "format": "uuid",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Boolean"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpensesA"
+        ],
+        "description": "Deletes an existing ExpensesA record.",
+        "operationId": "Delete ExpensesA"
+      }
+    },
+    "/EntityService/ExpensesA/insert": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExpensesA"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpensesA"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpensesA"
+        ],
+        "description": "Creates a new ExpensesA record.",
+        "operationId": "Add ExpensesA"
+      }
+    },
+    "/EntityService/ExpensesA/insert-batch": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": "false",
+            "description": "(Optional) Specifies if Data Service should stop processing the remaining records when a record fails to process. If set to true, Data Service will stop processing records on the first failure. This property only supports Boolean values (true, false).",
+            "format": "string",
+            "in": "query",
+            "name": "failOnFirst",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ExpensesA"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpensesABatchResponse"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpensesA"
+        ],
+        "description": "Creates multiple new ExpensesA records in a batch.",
+        "operationId": "Batch Add ExpensesA"
+      }
+    },
+    "/EntityService/ExpensesA/query": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/QueryRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpensesAQueryResponse"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpensesA"
+        ],
+        "description": "Query ExpensesA records.",
+        "operationId": "Query ExpensesA"
+      }
+    },
+    "/EntityService/ExpensesA/read": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "0",
+            "description": "(Optional) Specifies the number of records to skip before starting to return records from the query. Can be used along with limit property to implement pagination. Default value is 0 if not specified. The sort order is based on Id field.",
+            "format": "int32",
+            "in": "query",
+            "name": "start",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": "20",
+            "description": "(Optional) Specifies the maximum number of records to read from service. Can be used along with start property to implement pagination. Default value is 100 if not specified. The maximum value can be 1000.",
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpensesAQueryResponse"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpensesA"
+        ],
+        "description": "Reads all ExpensesA records.",
+        "operationId": "Get ExpensesA records"
+      }
+    },
+    "/EntityService/ExpensesA/read/{id}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": null,
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "format": "uuid",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpensesA"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpensesA"
+        ],
+        "description": "Retrieves a single ExpensesA record by Id.",
+        "operationId": "Get ExpensesA"
+      }
+    },
+    "/EntityService/ExpensesA/update-batch": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": "false",
+            "description": "(Optional) Specifies if Data Service should stop processing the remaining records when a record fails to process. If set to true, Data Service will stop processing records on the first failure. This property only supports Boolean values (true, false).",
+            "format": "string",
+            "in": "query",
+            "name": "failOnFirst",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ExpensesA"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpensesABatchResponse"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpensesA"
+        ],
+        "description": "Updates multiple existing ExpensesA records in a batch.",
+        "operationId": "Batch Update ExpensesA"
+      }
+    },
+    "/EntityService/ExpensesA/update/{id}": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": null,
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "format": "uuid",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExpensesA"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ExpensesA"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Write"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Write"
+            ]
+          }
+        ],
+        "tags": [
+          "ExpensesA"
+        ],
+        "description": "Updates an existing ExpensesA record.",
+        "operationId": "Update ExpensesA"
+      }
+    },
+    "/EntityService/SystemUser/query": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/QueryRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SystemUserQueryResponse"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "tags": [
+          "SystemUser"
+        ],
+        "description": "Query SystemUser records.",
+        "operationId": "Query SystemUser"
+      }
+    },
+    "/EntityService/SystemUser/read": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": "0",
+            "description": "(Optional) Specifies the number of records to skip before starting to return records from the query. Can be used along with limit property to implement pagination. Default value is 0 if not specified. The sort order is based on Id field.",
+            "format": "int32",
+            "in": "query",
+            "name": "start",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": "20",
+            "description": "(Optional) Specifies the maximum number of records to read from service. Can be used along with start property to implement pagination. Default value is 100 if not specified. The maximum value can be 1000.",
+            "format": "int32",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SystemUserQueryResponse"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "tags": [
+          "SystemUser"
+        ],
+        "description": "Reads all SystemUser records.",
+        "operationId": "Get SystemUser records"
+      }
+    },
+    "/EntityService/SystemUser/read/{id}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "default": null,
+            "description": "The Id of the record to retrieve/modify from Data Service.",
+            "format": "uuid",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "2",
+            "description": "(Optional) Specifies the depth of related records to be retrieved from the service. This property supports values from 1 to 3.",
+            "format": "int32",
+            "in": "query",
+            "name": "expansionLevel",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SystemUser"
+            }
+          },
+          "401": {
+            "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+          },
+          "403": {
+            "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [
+              "DataService.Data.Read"
+            ]
+          },
+          {
+            "oauth2": [
+              "DataService.Data.Read"
+            ]
+          }
+        ],
+        "tags": [
+          "SystemUser"
+        ],
+        "description": "Retrieves a single SystemUser record by Id.",
+        "operationId": "Get SystemUser"
+      }
+    }
+  },
+  "definitions": {
+    "Boolean": {
+      "type": "boolean"
+    },
+    "BulkUploadResult": {
+      "properties": {
+        "errorFileLink": {
+          "description": "The file link for bulk upload error.",
+          "format": "uri",
+          "type": "string"
+        },
+        "insertedRecords": {
+          "description": "The total number of records uploaded to Data Service.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "totalRecords": {
+          "description": "The total number of records to be uploaded to Data Service.",
+          "format": "int64",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "CommDirection": {
+      "enum": [
+        1,
+        0
+      ],
+      "type": "integer",
+      "x-enum-varnames": [
+        "Inbound",
+        "Outbound"
+      ],
+      "x-uipath-dataservice-type": "choiceset"
+    },
+    "EntityAttachment": {
+      "properties": {
+        "name": {
+          "format": "",
+          "type": "string"
+        },
+        "path": {
+          "format": "",
+          "type": "string"
+        },
+        "size": {
+          "format": "int64",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "type": {
+          "format": "",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ExpenseCommunications": {
+      "properties": {
+        "Body": {
+          "format": "",
+          "type": "string",
+          "x-nullable": true
+        },
+        "Channel": {
+          "format": "",
+          "type": "string",
+          "x-nullable": true
+        },
+        "CreateTime": {
+          "format": "date-time",
+          "nullable": false,
+          "type": "string"
+        },
+        "CreatedBy": {
+          "$ref": "#/definitions/SystemUser"
+        },
+        "Direction": {
+          "$ref": "#/definitions/CommDirection"
+        },
+        "Expense": {
+          "$ref": "#/definitions/ExpensesA"
+        },
+        "Id": {
+          "format": "uuid",
+          "nullable": false,
+          "type": "string"
+        },
+        "InReplyToID": {
+          "format": "",
+          "type": "string",
+          "x-nullable": true
+        },
+        "MessageID": {
+          "format": "",
+          "type": "string",
+          "x-nullable": true
+        },
+        "RecipientAddress": {
+          "format": "",
+          "type": "string",
+          "x-nullable": true
+        },
+        "SenderAddress": {
+          "format": "",
+          "type": "string",
+          "x-nullable": true
+        },
+        "Subject": {
+          "format": "",
+          "type": "string",
+          "x-nullable": true
+        },
+        "Timestamp": {
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": true
+        },
+        "Type": {
+          "format": "",
+          "type": "string",
+          "x-nullable": true
+        },
+        "UpdateTime": {
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": true
+        },
+        "UpdatedBy": {
+          "$ref": "#/definitions/SystemUser"
+        }
+      },
+      "type": "object",
+      "x-uipath-dataservice-type": "entity"
+    },
+    "ExpenseCommunicationsBatchResponse": {
+      "properties": {
+        "failureRecords": {
+          "properties": {
+            "error": {
+              "type": "string"
+            },
+            "record": {
+              "$ref": "#/definitions/ExpenseCommunications"
+            }
+          },
+          "type": "array"
+        },
+        "successRecords": {
+          "items": {
+            "$ref": "#/definitions/ExpenseCommunications"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ExpenseCommunicationsQueryResponse": {
+      "properties": {
+        "totalRecordCount": {
+          "description": "The total number of records matching the specified query filters in the service. Can be used with start and limit properties of QueryRequest to implement pagination.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "value": {
+          "items": {
+            "$ref": "#/definitions/ExpenseCommunications"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ExpenseDocuments": {
+      "properties": {
+        "Communication": {
+          "$ref": "#/definitions/ExpenseCommunications"
+        },
+        "CreateTime": {
+          "format": "date-time",
+          "nullable": false,
+          "type": "string"
+        },
+        "CreatedBy": {
+          "$ref": "#/definitions/SystemUser"
+        },
+        "Data": {
+          "$ref": "#/definitions/EntityAttachment"
+        },
+        "DocumentURL": {
+          "format": "",
+          "type": "string",
+          "x-nullable": true
+        },
+        "Expense": {
+          "$ref": "#/definitions/ExpensesA"
+        },
+        "File": {
+          "$ref": "#/definitions/EntityAttachment"
+        },
+        "Id": {
+          "format": "uuid",
+          "nullable": false,
+          "type": "string"
+        },
+        "Name": {
+          "format": "",
+          "type": "string",
+          "x-nullable": true
+        },
+        "RawText": {
+          "$ref": "#/definitions/EntityAttachment"
+        },
+        "ThumbnailURL": {
+          "format": "",
+          "type": "string",
+          "x-nullable": true
+        },
+        "UpdateTime": {
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": true
+        },
+        "UpdatedBy": {
+          "$ref": "#/definitions/SystemUser"
+        }
+      },
+      "type": "object",
+      "x-uipath-dataservice-type": "entity"
+    },
+    "ExpenseDocumentsBatchResponse": {
+      "properties": {
+        "failureRecords": {
+          "properties": {
+            "error": {
+              "type": "string"
+            },
+            "record": {
+              "$ref": "#/definitions/ExpenseDocuments"
+            }
+          },
+          "type": "array"
+        },
+        "successRecords": {
+          "items": {
+            "$ref": "#/definitions/ExpenseDocuments"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ExpenseDocumentsQueryResponse": {
+      "properties": {
+        "totalRecordCount": {
+          "description": "The total number of records matching the specified query filters in the service. Can be used with start and limit properties of QueryRequest to implement pagination.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "value": {
+          "items": {
+            "$ref": "#/definitions/ExpenseDocuments"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ExpenseTaxes": {
+      "properties": {
+        "Amount": {
+          "format": "double",
+          "type": "number",
+          "x-nullable": true
+        },
+        "AmountCHF": {
+          "format": "double",
+          "type": "number",
+          "x-nullable": true
+        },
+        "CreateTime": {
+          "format": "date-time",
+          "nullable": false,
+          "type": "string"
+        },
+        "CreatedBy": {
+          "$ref": "#/definitions/SystemUser"
+        },
+        "Description": {
+          "format": "",
+          "type": "string",
+          "x-nullable": true
+        },
+        "Expense": {
+          "$ref": "#/definitions/ExpensesA"
+        },
+        "Id": {
+          "format": "uuid",
+          "nullable": false,
+          "type": "string"
+        },
+        "TaxRate": {
+          "format": "double",
+          "type": "number",
+          "x-nullable": true
+        },
+        "UpdateTime": {
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": true
+        },
+        "UpdatedBy": {
+          "$ref": "#/definitions/SystemUser"
+        }
+      },
+      "type": "object",
+      "x-uipath-dataservice-type": "entity"
+    },
+    "ExpenseTaxesBatchResponse": {
+      "properties": {
+        "failureRecords": {
+          "properties": {
+            "error": {
+              "type": "string"
+            },
+            "record": {
+              "$ref": "#/definitions/ExpenseTaxes"
+            }
+          },
+          "type": "array"
+        },
+        "successRecords": {
+          "items": {
+            "$ref": "#/definitions/ExpenseTaxes"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ExpenseTaxesQueryResponse": {
+      "properties": {
+        "totalRecordCount": {
+          "description": "The total number of records matching the specified query filters in the service. Can be used with start and limit properties of QueryRequest to implement pagination.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "value": {
+          "items": {
+            "$ref": "#/definitions/ExpenseTaxes"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ExpensesA": {
+      "properties": {
+        "BookingText": {
+          "format": "",
+          "type": "string",
+          "x-nullable": true
+        },
+        "Country": {
+          "format": "",
+          "type": "string",
+          "x-nullable": true
+        },
+        "CreateTime": {
+          "format": "date-time",
+          "nullable": false,
+          "type": "string"
+        },
+        "CreatedBy": {
+          "$ref": "#/definitions/SystemUser"
+        },
+        "Currency": {
+          "format": "",
+          "type": "string",
+          "x-nullable": true
+        },
+        "ExpenseDate": {
+          "format": "date",
+          "type": "string",
+          "x-nullable": true
+        },
+        "ExternalID": {
+          "format": "",
+          "nullable": false,
+          "type": "string"
+        },
+        "Id": {
+          "format": "uuid",
+          "nullable": false,
+          "type": "string"
+        },
+        "ServiceCode": {
+          "format": "",
+          "type": "string",
+          "x-nullable": true
+        },
+        "ServiceDescription": {
+          "format": "",
+          "type": "string",
+          "x-nullable": true
+        },
+        "SubmittedBy": {
+          "format": "",
+          "type": "string",
+          "x-nullable": true
+        },
+        "TotalAmount": {
+          "format": "double",
+          "type": "number",
+          "x-nullable": true
+        },
+        "TotalAmountCHF": {
+          "format": "double",
+          "type": "number",
+          "x-nullable": true
+        },
+        "UpdateTime": {
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": true
+        },
+        "UpdatedBy": {
+          "$ref": "#/definitions/SystemUser"
+        }
+      },
+      "required": [
+        "ExternalID"
+      ],
+      "type": "object",
+      "x-uipath-dataservice-type": "entity"
+    },
+    "ExpensesABatchResponse": {
+      "properties": {
+        "failureRecords": {
+          "properties": {
+            "error": {
+              "type": "string"
+            },
+            "record": {
+              "$ref": "#/definitions/ExpensesA"
+            }
+          },
+          "type": "array"
+        },
+        "successRecords": {
+          "items": {
+            "$ref": "#/definitions/ExpensesA"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ExpensesAQueryResponse": {
+      "properties": {
+        "totalRecordCount": {
+          "description": "The total number of records matching the specified query filters in the service. Can be used with start and limit properties of QueryRequest to implement pagination.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "value": {
+          "items": {
+            "$ref": "#/definitions/ExpensesA"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Id": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "QueryFilter": {
+      "properties": {
+        "fieldName": {
+          "description": "Specifies the name of the field for filter operation.",
+          "format": "",
+          "type": "string"
+        },
+        "operator": {
+          "description": "Specifies the operator used for filter operation. Supported operators include: contains, not contains, startswith, endswith, =, !=, >, <, >=, <=, in, not in. Not all operators are supported for all field types.",
+          "format": "",
+          "type": "string"
+        },
+        "value": {
+          "description": "Specifies the value to use for the filter operation. An empty value with '=' operator does a null check and with '!=' operator does a not null check.",
+          "format": "",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "QueryFilterGroup": {
+      "properties": {
+        "filterGroups": {
+          "items": {
+            "$ref": "#/definitions/QueryFilterGroup"
+          },
+          "type": "array"
+        },
+        "logicalOperator": {
+          "default": 0,
+          "description": "Specifies if All (AND) or Any (OR) filters and filter groups should be used to filter records. Use 0 for All (AND) and 1 for Any (OR). Default is 0.",
+          "format": "int32",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "queryFilters": {
+          "items": {
+            "$ref": "#/definitions/QueryFilter"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "QueryRequest": {
+      "properties": {
+        "filterGroup": {
+          "$ref": "#/definitions/QueryFilterGroup"
+        },
+        "limit": {
+          "description": "(Optional) Specifies the maximum number of records to read from service. Can be used along with start property to implement pagination. Default value is 100 if not specified. The maximum value can be 1000.",
+          "format": "int64",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "selectedFields": {
+          "description": "(Optional) Specifies the list of fields to be returned for each record from the query. If left as null or the list is empty, all fields for the record will be returned. Default is null.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "sortOptions": {
+          "description": "(Optional) Specifies the list of fields used to sort returned records. The default sort order is based on Id field if sortOptions are not provided.",
+          "items": {
+            "$ref": "#/definitions/SortOption"
+          },
+          "type": "array"
+        },
+        "start": {
+          "description": "(Optional) Specifies the number of records to skip before starting to return records from the query. Can be used along with limit property to implement pagination. Default value is 0 if not specified. The default sort order is based on Id field, use sortOptions to change the sort order.",
+          "format": "int64",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "SortOption": {
+      "properties": {
+        "fieldName": {
+          "description": "Specifies the name of the field used to sort returned records. The name has to be a valid field and is case-sensitive.",
+          "format": "",
+          "type": "string"
+        },
+        "isDescending": {
+          "format": "",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "SystemUser": {
+      "properties": {
+        "CreateTime": {
+          "format": "date-time",
+          "nullable": false,
+          "type": "string"
+        },
+        "Email": {
+          "format": "",
+          "type": "string",
+          "x-nullable": true
+        },
+        "Id": {
+          "format": "uuid",
+          "nullable": false,
+          "type": "string"
+        },
+        "IsActive": {
+          "format": "",
+          "nullable": false,
+          "type": "boolean"
+        },
+        "Name": {
+          "format": "",
+          "nullable": false,
+          "type": "string"
+        },
+        "Type": {
+          "$ref": "#/definitions/UserType"
+        },
+        "UpdateTime": {
+          "format": "date-time",
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "type": "object",
+      "x-uipath-dataservice-type": "entity"
+    },
+    "SystemUserBatchResponse": {
+      "properties": {
+        "failureRecords": {
+          "properties": {
+            "error": {
+              "type": "string"
+            },
+            "record": {
+              "$ref": "#/definitions/SystemUser"
+            }
+          },
+          "type": "array"
+        },
+        "successRecords": {
+          "items": {
+            "$ref": "#/definitions/SystemUser"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "SystemUserQueryResponse": {
+      "properties": {
+        "totalRecordCount": {
+          "description": "The total number of records matching the specified query filters in the service. Can be used with start and limit properties of QueryRequest to implement pagination.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "value": {
+          "items": {
+            "$ref": "#/definitions/SystemUser"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "UserType": {
+      "enum": [
+        3,
+        1,
+        2,
+        0
+      ],
+      "type": "integer",
+      "x-enum-varnames": [
+        "Application",
+        "Group",
+        "Robot",
+        "User"
+      ],
+      "x-uipath-dataservice-type": "choiceset"
+    }
+  },
+  "securityDefinitions": {
+    "bearerAuth": {
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey"
+    },
+    "oauth2": {
+      "authorizationUrl": "https://cloud.uipath.com/identity_/connect/authorize",
+      "flow": "accessCode",
+      "scopes": {
+        "DataService.Data.Read": "Entity Data Read",
+        "DataService.Data.Write": "Entity Data Write",
+        "DataService.Schema.Read": "Entity Schema Read"
+      },
+      "tokenUrl": "https://cloud.uipath.com/identity_/connect/token",
+      "type": "oauth2"
+    }
+  },
+  "x-components": {
+    "responses": {
+      "ForbiddenError": {
+        "description": "You don't have permission to access the entity, field or record or you are using an unsupported robot type. Please contact your administrator for necessary permissions."
+      },
+      "UnauthorizedError": {
+        "description": "You are not authenticated to access Data Service. Make sure your Assistant or Robot is connected to a modern folder in your account."
+      }
+    }
+  }
+}
